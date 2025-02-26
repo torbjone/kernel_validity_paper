@@ -1,0 +1,17 @@
+numpy 
+matplotlib
+scipy
+neo
+elephant
+quantities
+mpi4py
+neuron
+LFPy
+
+
+# System dependency: NEST Simulator
+# Install via:
+# sudo add-apt-repository ppa:nest-simulator/nest
+# sudo apt-get update
+# sudo apt-get install nest
+
