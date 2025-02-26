@@ -3,7 +3,7 @@ import sys
 from os.path import join
 import numpy as np
 import matplotlib
-# matplotlib.use("AGG")
+matplotlib.use("AGG")
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from matplotlib.collections import PatchCollection
@@ -29,8 +29,6 @@ cell_models_folder = os.path.abspath(cell_models.__path__[0])
 hay_folder = join(cell_models_folder, "L5bPCmodelsEH")
 
 
-
-# soma_z_mean = -1270
 default_pop_params = {
     'pop_radius': 250,  # population radius in µm
     'num_cells': 500,  # population size, N_post
@@ -123,6 +121,7 @@ def calc_K_equal(kernels):
 
     return K_equal / kernels.shape[0]
 
+
 def calc_K_nonequal(kernels):
     # K_nonequal = np.zeros([kernels.shape[1], kernels.shape[2], kernels.shape[2]])
     # for elec in range(kernels.shape[1]):
@@ -137,7 +136,6 @@ def calc_K_nonequal(kernels):
 
 def load_mechs_from_folder(mod_folder):
 
-    # if hasattr(neuron.h, "CaDynamics_E2"):
     if hasattr(neuron.h, "ISyn"):
         return
     mechs_loaded = neuron.load_mechanisms(mod_folder)
@@ -503,7 +501,7 @@ def calculate_kernel_instance(soma_z_mean, input_time, pop_params,
 
     for cell_idx in range(pop_params['num_cells']):
         if cell_idx % 10 == 0:
-            print("Cell idx: ", cell_idx)
+            print(f"Cell idx: ", cell_idx)
         # t0 = time.time()
         # if cell_idx % 100 == 0:
         #     print(f'{cell_idx} of {pop_params["num_cells"]}')
@@ -712,8 +710,6 @@ def kernel_heterogeneities(sim_data_folder):
 
 def make_neural_pop_setup_fig(sim_data_folder):
 
-    if rank != 0:
-        return
     tstop = 50
 
     cell = return_hay_cell(tstop, dt, make_passive=True)

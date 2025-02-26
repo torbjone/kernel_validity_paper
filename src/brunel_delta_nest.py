@@ -294,8 +294,6 @@ def run_brunel_network(g=5.0, eta=2.0, J=0.1, order=2500, N_rec=100, basename="t
     spiketrains_ex = {'spikes': sort_spiketrains(espikes)}
     #spiketrains_in = {'spikes': sort_spiketrains(ispikes)}
 
-    # print(spiketrains_ex)
-
     np.save(os.path.join(savefolder, "{}_ex.npy".format(name)), spiketrains_ex)
     #np.save(os.path.join(savefolder, "{}_in.npy".format(name)), spiketrains_in)
 
@@ -326,15 +324,6 @@ def plot_raster(espikes, ispikes, name):
     # ax2 = fig.add_subplot(212, xlim=[0, 1200])
     ax1.plot(times_ex, ids_ex, '|', c='orange')
     ax1.plot(times_in, ids_in - np.min(ids_in) + np.max(ids_ex), '|', c='blue')
-
-    # spiketrains_ex = sort_spiketrains(espikes)
-    # spiketrains_in = sort_spiketrains(ispikes)
-    #
-    # for i, spiketrain in enumerate(spiketrains_ex):
-    #     ax2.plot(spiketrain, np.ones(len(spiketrain)) + i, '|', c='orange')
-    #
-    # for i, spiketrain in enumerate(spiketrains_in):
-    #     ax2.plot(spiketrain, np.ones(len(spiketrain)) + i + len(spiketrains_ex), '|', c='blue')
 
     plt.savefig("rasterplot_{}.png".format(name))
 

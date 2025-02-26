@@ -643,8 +643,7 @@ class KernelValidity:
 
 
 def run_illustrative_examples(figure_folder):
-    if rank != 0:
-        return
+
     num_kernels = 1000
     amp_stds = np.array([0, 0.5, 0.5, 0.5])
     correlations = np.array([0.0, 0.1, 0.0, 1.0])
@@ -755,9 +754,6 @@ def run_illustrative_examples(figure_folder):
 
 
 def run_parameter_scan(results_folder):
-
-    if rank != 0:
-        return
 
     amp_stds = np.linspace(0, 2, 11)
     correlations = np.r_[0, np.logspace(-2, 0, 11)]
@@ -1364,7 +1360,8 @@ def error_with_correlation_type(data_folder):
 
 
 def error_summary_figure(data_folder):
-
+    if rank != 0:
+        return
     correlation_types = [
         "mip_0.0_50_0.0",
         "mip_0.0_10_0.0",
@@ -1529,7 +1526,8 @@ def error_summary_figure(data_folder):
 
 
 def plot_all_signals_and_kernels(data_folder, firing_rate_folder):
-
+    if rank != 0:
+        return
 
     correlation_types = [
                          "mip_0.0_10_0.0",
@@ -1890,7 +1888,8 @@ def return_rate_model_fr(dt):
 
 
 def rate_model_figure(data_folder):
-
+    if rank != 0:
+        return
     case_name = 'default'
     data_dict = np.load(join(data_folder, f"kernels_case_{case_name}.npy"),
                         allow_pickle=True)[()]
@@ -2017,7 +2016,8 @@ def rate_model_figure(data_folder):
 
 
 def investigate_error_measure(data_folder, firing_rate_folder):
-
+    if rank != 0:
+        return
     correlation_types = [
         "mip_0.0_10_0.0",
         #"mip_0.1_1_0.0",
@@ -2219,6 +2219,8 @@ def investigate_error_measure(data_folder, firing_rate_folder):
 
 
 def gather_pop_kernels(data_folder):
+    if rank != 0:
+        return
     import json
     sim_names = ['default',
                  'small_population', 'large_population',
@@ -2287,8 +2289,6 @@ def run_parameter_scan_biophysical_model(figure_folder, data_folder, firing_rate
 
 
 def simplest_toy_illustration(figure_folder):
-    if rank != 0:
-        return
     num_kernels = 2
     tau_1 = 0.2
     tau_2 = 1.0
