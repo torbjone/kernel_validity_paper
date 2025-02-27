@@ -31,7 +31,7 @@ hay_folder = join(cell_models_folder, "L5bPCmodelsEH")
 
 default_pop_params = {
     'pop_radius': 250,  # population radius in µm
-    'num_cells': 500,  # population size, N_post
+    'num_cells': 500,  # Out-degree, K_out
     'in_degree': 1,  # num synaptic inputs onto each postsynaptic cell
     'soma_z_scale': 100,  # SD of somas in z-direction
     'syn_z_scale': 100,  # SD of input in z-direction
