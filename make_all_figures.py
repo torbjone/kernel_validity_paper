@@ -65,7 +65,7 @@ if rank == 0:
     # kernel_validity.investigate_error_measure(data_folder, firing_rate_folder)
 
     # Figure 8:
-    # kernel_validity.compare_errors("mip_0.0_10_0.0")
+    # kernel_validity.compare_errors("mip_0.0_10_0.0", data_folder)
 
     # Figure 9:
     # kernel_validity.illustrate_firing_rates(firing_rate_folder)

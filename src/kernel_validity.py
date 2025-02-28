@@ -627,7 +627,7 @@ class KernelValidity:
         mark_subplots(fig.axes, xpos=-0.05)
 
         plt.savefig(join(self.figure_folder, "kernel_illustration_%s.png" % self.sim_name), dpi=90)
-        plt.savefig("kernel_illustration_recent_remade.png", dpi=90)
+        plt.savefig("kernel_illustration_recent.png", dpi=90)
         # plt.show()
 
     def save_signals(self):
@@ -994,7 +994,7 @@ def run_simpop_example(figure_folder, data_folder, kernel_name,
     kernel_instance.make_multiple_elecs_plot()
 
 
-def compare_errors(correlation_type):
+def compare_errors(correlation_type, data_folder):
 
     case_studies = {
         'input region': ['apical', 'default', 'uniform'],
@@ -2012,7 +2012,7 @@ def rate_model_figure(data_folder):
     simplify_axes(fig.axes)
     mark_subplots(fig.axes, ypos=1.05)
 
-    plt.savefig("rate_model_example_remade.pdf")
+    plt.savefig("rate_model_example.pdf")
 
 
 def investigate_error_measure(data_folder, firing_rate_folder):
@@ -2397,7 +2397,7 @@ if __name__ == '__main__':
     investigate_error_measure(data_folder, firing_rate_folder)
 
     # Figure 8:
-    compare_errors("mip_0.0_10_0.0")
+    compare_errors("mip_0.0_10_0.0", data_folder)
 
     #Figure 9:
     illustrate_firing_rates(firing_rate_folder)
