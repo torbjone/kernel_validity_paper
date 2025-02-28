@@ -676,7 +676,7 @@ def run_illustrative_examples(figure_folder):
 
     column_titles =[
         "homogeneous kernels\nuncorrelated spikes",
-        "heterogeneous kernels\nlow spikecorrelation",
+        "heterogeneous kernels\nlow spike correlation",
         "heterogeneous kernels\nuncorrelated spikes",
         "heterogeneous kernels\nfully correlated spikes"
         ]
